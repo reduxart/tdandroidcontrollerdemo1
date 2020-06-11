@@ -10,15 +10,15 @@ This project is a basic demo for TouchDesigner's DAT plugins. By using this proj
 
 ### Installing
 
-*Compile project on Android Studio
-*Open .toe file on TouchDesigner
-*Set your IP inside Udp DAT plugin properties in .toe project
+* Compile project on Android Studio
+* Open .toe file on TouchDesigner
+* Set your IP inside Udp DAT plugin properties in .toe project
 
 ```
 for example: 192.168.1.4
 ```
 
-*Set your Port inside Udp DAT plugin properties to be same as defined in Android projecy
+* Set your Port inside Udp DAT plugin properties to be same as defined in Android projecy
 
 ```
 for example: 9997
