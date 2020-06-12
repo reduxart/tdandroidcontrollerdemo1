@@ -13,26 +13,24 @@ import java.net.InetAddress;
 import static android.content.ContentValues.TAG;
 
 public class UdpThread {
-    private String Message;
-    private InetAddress inetAddress;
+    private static InetAddress inetAddress;
 
-    public UdpThread(String messageStr, InetAddress ipAddress) {
-        this.Message = messageStr;
-        this.inetAddress = ipAddress;
+    public UdpThread(InetAddress ipAddress) {
+        inetAddress = ipAddress;
     }
 
     @SuppressLint({"NewApi", "StaticFieldLeak"})
-    public void SendMesssage() {
+    public static void SendMesssage(final String messageStr) {
         AsyncTask<Void, Void, Void> async_cient = new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
 
                 try (DatagramSocket socket = new DatagramSocket()) {
                     DatagramPacket dp;
-                    dp = new DatagramPacket(Message.getBytes(), Message.length(), inetAddress, Constants.PORT);
+                    dp = new DatagramPacket(messageStr.getBytes(), messageStr.length(), inetAddress, Constants.PORT);
                     socket.setBroadcast(true);
                     socket.send(dp);
-                    Log.e(TAG, "Message sent " + Message);
+                    Log.e(TAG, "Message sent " + messageStr);
 
                 } catch (Exception e) {
                     e.printStackTrace();

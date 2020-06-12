@@ -38,13 +38,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         try {
             ipAddress = SendMessage.initilizeBroadcastAddress(getApplicationContext());
             currentIp.setText("Current IP: " + ipAddress.getHostAddress() + " Port: " + Constants.PORT);
+            UdpThread newTask = new UdpThread(ipAddress);
         } catch (IOException e) {
             e.printStackTrace();
         }
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        assert sensorManager != null;
         if (sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null) {
             accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-            sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_FASTEST);
         } else {
             // fai! we dont have an accelerometer!
         }
@@ -75,8 +77,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     public void sendPercentageData() {
         String message = "PARAM1:" + deltaX + " PARAM2:" + deltaY + " PARAM3:" + deltaZ;
-        UdpThread newTask = new UdpThread(message, ipAddress);
-        newTask.SendMesssage();
+        UdpThread.SendMesssage(message);
     }
 
     @Override
