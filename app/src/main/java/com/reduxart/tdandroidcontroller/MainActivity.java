@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.reduxart.tdandroidcontroller.network.SendMessage;
+import com.reduxart.tdandroidcontroller.network.UdpThread;
 import com.reduxart.tdandroidcontroller.utils.Constants;
 
 import java.io.IOException;
@@ -74,7 +75,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     public void sendPercentageData() {
         String message = "PARAM1:" + deltaX + " PARAM2:" + deltaY + " PARAM3:" + deltaZ;
-        SendMessage.sendBroadcast(message, ipAddress);
+        //SendMessage.sendBroadcast(message, ipAddress);
+        UdpThread newTask = new UdpThread(message, ipAddress);
+        newTask.SendMesssage();
     }
 
     @Override
