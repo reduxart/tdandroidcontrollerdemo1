@@ -19,7 +19,7 @@ This project is a basic demo for TouchDesigner's DAT plugins. By using this proj
 for example: 192.168.1.4
 ```
 
-* Set your Port inside Udp DAT plugin properties to be same as defined in Android projecy
+* Set your Port inside Udp DAT plugin properties to be same as defined in Android project /utils/Constants.js
 
 ```
 for example: 9997
