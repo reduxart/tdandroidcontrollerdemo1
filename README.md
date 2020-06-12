@@ -7,6 +7,7 @@ This project is a basic demo for TouchDesigner's DAT plugins. By using this proj
 * [Android Studio](https://developer.android.com/studio) - Sender
 * [Touch Designer](https://derivative.ca/) - Receiver
 
+![](images/demo_image_2.PNG)
 
 ### Installing
 
@@ -23,11 +24,12 @@ for example: 192.168.1.4
 ```
 for example: 9997
 ```
+<img src="/images/demo_image_1.png" width="300">
 
 ## Authors
 
-* **İbrahim Sefa TUNA** - *Android Developer
+* **İbrahim Sefa TUNA** - Android Developer
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
