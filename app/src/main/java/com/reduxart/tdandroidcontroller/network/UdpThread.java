@@ -2,6 +2,7 @@ package com.reduxart.tdandroidcontroller.network;
 
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.reduxart.tdandroidcontroller.utils.Constants;
 
@@ -9,8 +10,9 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
+import static android.content.ContentValues.TAG;
+
 public class UdpThread {
-    private AsyncTask<Void, Void, Void> async_cient;
     private String Message;
     private InetAddress inetAddress;
 
@@ -21,7 +23,7 @@ public class UdpThread {
 
     @SuppressLint({"NewApi", "StaticFieldLeak"})
     public void SendMesssage() {
-        async_cient = new AsyncTask<Void, Void, Void>() {
+        AsyncTask<Void, Void, Void> async_cient = new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
 
@@ -30,6 +32,8 @@ public class UdpThread {
                     dp = new DatagramPacket(Message.getBytes(), Message.length(), inetAddress, Constants.PORT);
                     socket.setBroadcast(true);
                     socket.send(dp);
+                    Log.e(TAG, "Message sent " + Message);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

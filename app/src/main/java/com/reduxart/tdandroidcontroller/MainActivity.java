@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     protected void onResume() {
         super.onResume();
-        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_STATUS_UNRELIABLE);
     }
 
     protected void onPause() {
@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     public void sendPercentageData() {
         String message = "PARAM1:" + deltaX + " PARAM2:" + deltaY + " PARAM3:" + deltaZ;
-        //SendMessage.sendBroadcast(message, ipAddress);
         UdpThread newTask = new UdpThread(message, ipAddress);
         newTask.SendMesssage();
     }
