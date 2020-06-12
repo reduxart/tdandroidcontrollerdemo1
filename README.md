@@ -1,5 +1,7 @@
 # TouchDesigner Android Controller Demo-1
 
+<img alt="APM" src="https://img.shields.io/apm/l/vim-mode?style=plastic">
+
 This project is a basic demo for TouchDesigner's DAT plugins. By using this project you will be able to control your TouchDesigner with your mobile phone (Android)
 
 ### Prerequisites
